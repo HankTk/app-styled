@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   AxButton,
   AxCard,
@@ -14,18 +15,63 @@ import {
   AxSpacingItem,
   AxSpacingLabel,
   AxSpacingValue,
+  AxDialog,
+  AxParagraph,
 } from '@ui/components';
 
 export function ButtonPage()
 {
+  const [primaryDialogOpen, setPrimaryDialogOpen] = useState(false);
+  const [secondaryDialogOpen, setSecondaryDialogOpen] = useState(false);
+  const [dangerDialogOpen, setDangerDialogOpen] = useState(false);
+
   return (
     <AxCard padding="large">
       <AxHeading3>Variants</AxHeading3>
       <AxButtonGroup>
-        <AxButton variant="primary">Primary</AxButton>
-        <AxButton variant="secondary">Secondary</AxButton>
-        <AxButton variant="danger">Danger</AxButton>
+        <AxButton variant="primary" onClick={() => setPrimaryDialogOpen(true)}>
+          Primary
+        </AxButton>
+        <AxButton variant="secondary" onClick={() => setSecondaryDialogOpen(true)}>
+          Secondary
+        </AxButton>
+        <AxButton variant="danger" onClick={() => setDangerDialogOpen(true)}>
+          Danger
+        </AxButton>
       </AxButtonGroup>
+
+      <AxDialog
+        open={primaryDialogOpen}
+        onClose={() => setPrimaryDialogOpen(false)}
+        title="Primary Button Clicked"
+      >
+        <AxParagraph>
+          You clicked the Primary button! This is a primary action button typically used for
+          the main action on a page.
+        </AxParagraph>
+      </AxDialog>
+
+      <AxDialog
+        open={secondaryDialogOpen}
+        onClose={() => setSecondaryDialogOpen(false)}
+        title="Secondary Button Clicked"
+      >
+        <AxParagraph>
+          You clicked the Secondary button! This is a secondary action button used for
+          alternative actions.
+        </AxParagraph>
+      </AxDialog>
+
+      <AxDialog
+        open={dangerDialogOpen}
+        onClose={() => setDangerDialogOpen(false)}
+        title="Danger Button Clicked"
+      >
+        <AxParagraph>
+          You clicked the Danger button! This button variant is typically used for
+          destructive actions like delete or remove.
+        </AxParagraph>
+      </AxDialog>
 
       <AxHeading3>Sizes</AxHeading3>
       <AxButtonGroup>
