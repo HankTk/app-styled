@@ -11,6 +11,7 @@ export interface AxDialogProps {
   closeOnEscape?: boolean;
   showCloseButton?: boolean;
   footer?: React.ReactNode;
+  okButtonText?: string;
 }
 
 interface StyledOverlayProps {
@@ -57,7 +58,12 @@ const StyledDialog = styled.div<StyledDialogProps>`
         return '600px';
     }
   }};
-  max-height: ${({ $size }) => ($size === 'fullscreen' ? '100%' : '90vh')};
+  height: ${({ $size }) => {
+    if ($size === 'fullscreen') return '100%';
+    if ($size === 'small') return 'calc(400px / 1.618)'; // golden ratio
+    if ($size === 'large') return 'calc(800px / 1.618)'; // golden ratio
+    return 'calc(600px / 1.618)'; // medium: golden ratio
+  }};
   display: flex;
   flex-direction: column;
   transform: ${({ $isOpen }) => ($isOpen ? 'scale(1)' : 'scale(0.95)')};
@@ -163,6 +169,7 @@ export const AxDialog: React.FC<AxDialogProps> = ({
   closeOnEscape = true,
   showCloseButton = false,
   footer,
+  okButtonText = 'OK',
 }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -224,7 +231,7 @@ export const AxDialog: React.FC<AxDialogProps> = ({
           <StyledDialogFooter>{footer}</StyledDialogFooter>
         ) : (
           <StyledDialogFooter>
-            <StyledOkButton onClick={onClose}>OK</StyledOkButton>
+            <StyledOkButton onClick={onClose}>{okButtonText}</StyledOkButton>
           </StyledDialogFooter>
         )}
       </StyledDialog>

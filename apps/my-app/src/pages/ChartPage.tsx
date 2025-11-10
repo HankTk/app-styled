@@ -5,6 +5,7 @@ import {
   AxParagraph,
   AxGrid,
 } from '@ui/components';
+import { I18N } from '../i18n/I18nProvider';
 
 export function ChartPage() {
   // Sample data for line and area charts
@@ -38,9 +39,9 @@ export function ChartPage() {
   return (
     <>
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Line Chart</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.line" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A line chart showing sales, revenue, and profit trends over time
+          <I18N l10n="chart.lineDescription" />
         </AxParagraph>
         <AxChart
           type="line"
@@ -55,9 +56,9 @@ export function ChartPage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Bar Chart</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.bar" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A bar chart comparing actual values vs targets across different categories
+          <I18N l10n="chart.barDescription" />
         </AxParagraph>
         <AxChart
           type="bar"
@@ -72,9 +73,9 @@ export function ChartPage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Area Chart</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.area" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          An area chart displaying cumulative sales and revenue data
+          <I18N l10n="chart.areaDescription" />
         </AxParagraph>
         <AxChart
           type="area"
@@ -89,9 +90,9 @@ export function ChartPage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Pie Chart</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.pie" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A pie chart showing device distribution
+          <I18N l10n="chart.pieDescription" />
         </AxParagraph>
         <AxChart
           type="pie"
@@ -105,9 +106,9 @@ export function ChartPage() {
 
       <AxGrid>
         <AxCard padding="large">
-          <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Compact Line Chart</AxHeading3>
+          <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.compactLine" /></AxHeading3>
           <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-            A smaller line chart without grid
+            <I18N l10n="chart.compactLineDescription" />
           </AxParagraph>
           <AxChart
             type="line"
@@ -122,9 +123,9 @@ export function ChartPage() {
         </AxCard>
 
         <AxCard padding="large">
-          <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Compact Bar Chart</AxHeading3>
+          <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="chart.compactBar" /></AxHeading3>
           <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-            A smaller bar chart
+            <I18N l10n="chart.compactBarDescription" />
           </AxParagraph>
           <AxChart
             type="bar"

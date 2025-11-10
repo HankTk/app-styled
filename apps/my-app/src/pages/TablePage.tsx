@@ -9,6 +9,7 @@ import {
   AxHeading3,
   AxParagraph,
 } from '@ui/components';
+import { I18N } from '../i18n/I18nProvider';
 
 export function TablePage() {
   const sampleData = [
@@ -22,9 +23,9 @@ export function TablePage() {
   return (
     <>
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Default Table</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="table.default" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A basic table with default styling
+          <I18N l10n="table.defaultDescription" />
         </AxParagraph>
         <AxTable fullWidth>
           <AxTableHead>
@@ -51,9 +52,9 @@ export function TablePage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Bordered Table</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="table.bordered" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A table with borders around cells
+          <I18N l10n="table.borderedDescription" />
         </AxParagraph>
         <AxTable fullWidth variant="bordered">
           <AxTableHead>
@@ -80,9 +81,9 @@ export function TablePage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Striped Table</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="table.striped" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A table with alternating row colors
+          <I18N l10n="table.stripedDescription" />
         </AxParagraph>
         <AxTable fullWidth variant="striped">
           <AxTableHead>
@@ -109,13 +110,13 @@ export function TablePage() {
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Table Sizes</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="table.sizes" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          Tables with different font sizes
+          <I18N l10n="table.sizesDescription" />
         </AxParagraph>
         
         <div style={{ marginBottom: 'var(--spacing-2xl)' }}>
-          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}>Small Size</AxParagraph>
+          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}><I18N l10n="table.smallSize" /></AxParagraph>
           <AxTable fullWidth size="small">
             <AxTableHead>
               <AxTableRow>
@@ -137,7 +138,7 @@ export function TablePage() {
         </div>
 
         <div style={{ marginBottom: 'var(--spacing-2xl)' }}>
-          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}>Medium Size (Default)</AxParagraph>
+          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}><I18N l10n="table.mediumSize" /></AxParagraph>
           <AxTable fullWidth size="medium">
             <AxTableHead>
               <AxTableRow>
@@ -159,7 +160,7 @@ export function TablePage() {
         </div>
 
         <div>
-          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}>Large Size</AxParagraph>
+          <AxParagraph style={{ marginBottom: 'var(--spacing-md)' }}><I18N l10n="table.largeSize" /></AxParagraph>
           <AxTable fullWidth size="large">
             <AxTableHead>
               <AxTableRow>
@@ -182,23 +183,23 @@ export function TablePage() {
       </AxCard>
 
       <AxCard padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Text Alignment</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="table.textAlignment" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          Table cells with different text alignments
+          <I18N l10n="table.textAlignmentDescription" />
         </AxParagraph>
         <AxTable fullWidth>
           <AxTableHead>
             <AxTableRow>
-              <AxTableHeader align="left">Left</AxTableHeader>
-              <AxTableHeader align="center">Center</AxTableHeader>
-              <AxTableHeader align="right">Right</AxTableHeader>
+              <AxTableHeader align="left"><I18N l10n="table.left" /></AxTableHeader>
+              <AxTableHeader align="center"><I18N l10n="table.center" /></AxTableHeader>
+              <AxTableHeader align="right"><I18N l10n="table.right" /></AxTableHeader>
             </AxTableRow>
           </AxTableHead>
           <AxTableBody>
             <AxTableRow>
-              <AxTableCell align="left">Left aligned text</AxTableCell>
-              <AxTableCell align="center">Center aligned text</AxTableCell>
-              <AxTableCell align="right">Right aligned text</AxTableCell>
+              <AxTableCell align="left"><I18N l10n="table.leftAligned" /></AxTableCell>
+              <AxTableCell align="center"><I18N l10n="table.centerAligned" /></AxTableCell>
+              <AxTableCell align="right"><I18N l10n="table.rightAligned" /></AxTableCell>
             </AxTableRow>
             <AxTableRow>
               <AxTableCell align="left">$1,234.56</AxTableCell>

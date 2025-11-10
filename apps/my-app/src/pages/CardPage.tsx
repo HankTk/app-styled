@@ -1,28 +1,29 @@
 import { AxCard, AxGrid, AxHeading3, AxParagraph } from '@ui/components';
+import { I18N } from '../i18n/I18nProvider';
 
 export function CardPage()
 {
   return (
     <AxGrid>
       <AxCard elevation={0} padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Elevation 0</AxHeading3>
-        <AxParagraph>Card without shadow</AxParagraph>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="card.elevation0" /></AxHeading3>
+        <AxParagraph><I18N l10n="card.elevation0Description" /></AxParagraph>
       </AxCard>
       <AxCard elevation={1} padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Elevation 1</AxHeading3>
-        <AxParagraph>Card with light shadow</AxParagraph>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="card.elevation1" /></AxHeading3>
+        <AxParagraph><I18N l10n="card.elevation1Description" /></AxParagraph>
       </AxCard>
       <AxCard elevation={2} padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Elevation 2</AxHeading3>
-        <AxParagraph>Card with medium shadow</AxParagraph>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="card.elevation2" /></AxHeading3>
+        <AxParagraph><I18N l10n="card.elevation2Description" /></AxParagraph>
       </AxCard>
       <AxCard elevation={3} padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Elevation 3</AxHeading3>
-        <AxParagraph>Card with strong shadow</AxParagraph>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="card.elevation3" /></AxHeading3>
+        <AxParagraph><I18N l10n="card.elevation3Description" /></AxParagraph>
       </AxCard>
       <AxCard elevation={4} padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Elevation 4</AxHeading3>
-        <AxParagraph>Card with very strong shadow</AxParagraph>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="card.elevation4" /></AxHeading3>
+        <AxParagraph><I18N l10n="card.elevation4Description" /></AxParagraph>
       </AxCard>
     </AxGrid>
   );

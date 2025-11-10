@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { ThemeProvider, useTheme, AxContainer, AxHeader, AxTitle, AxSubtitle, AxSection, AxSectionTitle } from '@ui/components';
+import { I18nProvider, useI18n } from './i18n/I18nProvider';
 import { Sidebar } from './components/Sidebar';
 import { Drawer } from './components/Drawer';
 import { ButtonPage } from './pages/ButtonPage';
@@ -17,14 +18,14 @@ const AxMainContent = styled.div`
   min-height: 100vh;
 `;
 
-const pages: Record<string, { component: React.ComponentType; title: string }> = {
-  button: { component: ButtonPage, title: 'Button Component' },
-  card: { component: CardPage, title: 'Card Component' },
-  input: { component: InputPage, title: 'Input Component' },
-  table: { component: TablePage, title: 'Table Component' },
-  chart: { component: ChartPage, title: 'Chart Component' },
-  dialog: { component: DialogPage, title: 'Dialog Component' },
-  combination: { component: CombinationPage, title: 'Combination Example' },
+const pages: Record<string, { component: React.ComponentType; titleKey: string }> = {
+  button: { component: ButtonPage, titleKey: 'page.button' },
+  card: { component: CardPage, titleKey: 'page.card' },
+  input: { component: InputPage, titleKey: 'page.input' },
+  table: { component: TablePage, titleKey: 'page.table' },
+  chart: { component: ChartPage, titleKey: 'page.chart' },
+  dialog: { component: DialogPage, titleKey: 'page.dialog' },
+  combination: { component: CombinationPage, titleKey: 'page.combination' },
 };
 
 function AppContent()
@@ -32,9 +33,10 @@ function AppContent()
   const [currentPage, setCurrentPage] = useState('button');
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { t } = useI18n();
 
   const CurrentPageComponent = pages[currentPage]?.component || ButtonPage;
-  const pageTitle = pages[currentPage]?.title || 'Button Component';
+  const pageTitle = pages[currentPage] ? t(pages[currentPage].titleKey) : t('page.button');
 
   return (
     <AxContainer>
@@ -51,8 +53,8 @@ function AppContent()
       <AxMainContent>
         <AxHeader>
           <div>
-            <AxTitle>Styled Components UI Library</AxTitle>
-            <AxSubtitle>Demo application for component library</AxSubtitle>
+            <AxTitle>{t('app.title')}</AxTitle>
+            <AxSubtitle>{t('app.subtitle')}</AxSubtitle>
           </div>
         </AxHeader>
         <AxSection>
@@ -68,7 +70,9 @@ function App()
 {
   return (
     <ThemeProvider>
-      <AppContent />
+      <I18nProvider>
+        <AppContent />
+      </I18nProvider>
     </ThemeProvider>
   );
 }

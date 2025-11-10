@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { AxButton } from '@ui/components';
+import { useI18n } from '../i18n/I18nProvider';
 
 const AxSidebar = styled.aside`
   position: fixed;
@@ -68,22 +69,24 @@ interface SidebarProps
 }
 
 const menuItems = [
-  { id: 'button', label: 'Button' },
-  { id: 'card', label: 'Card' },
-  { id: 'input', label: 'Input' },
-  { id: 'table', label: 'Table' },
-  { id: 'chart', label: 'Chart' },
-  { id: 'dialog', label: 'Dialog' },
-  { id: 'combination', label: 'Combination' },
+  { id: 'button', labelKey: 'sidebar.button' },
+  { id: 'card', labelKey: 'sidebar.card' },
+  { id: 'input', labelKey: 'sidebar.input' },
+  { id: 'table', labelKey: 'sidebar.table' },
+  { id: 'chart', labelKey: 'sidebar.chart' },
+  { id: 'dialog', labelKey: 'sidebar.dialog' },
+  { id: 'combination', labelKey: 'sidebar.combination' },
 ];
 
 export function Sidebar({ currentPage, onPageChange }: SidebarProps)
 {
+  const { t } = useI18n();
+
   return (
     <AxSidebar>
       <AxSidebarHeader>
-        <AxSidebarTitle>UI Library</AxSidebarTitle>
-        <AxSidebarSubtitle>Component Examples</AxSidebarSubtitle>
+        <AxSidebarTitle>{t('sidebar.title')}</AxSidebarTitle>
+        <AxSidebarSubtitle>{t('sidebar.subtitle')}</AxSidebarSubtitle>
       </AxSidebarHeader>
       <AxMenuList>
         {menuItems.map((item) => (
@@ -93,7 +96,7 @@ export function Sidebar({ currentPage, onPageChange }: SidebarProps)
               onClick={() => onPageChange(item.id)}
               variant={currentPage === item.id ? 'primary' : 'secondary'}
             >
-              {item.label}
+              {t(item.labelKey)}
             </AxMenuButton>
           </AxMenuItem>
         ))}

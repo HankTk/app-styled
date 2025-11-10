@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { AxButton, AxHeading3, AxParagraph } from '@ui/components';
+import { useI18n } from '../i18n/I18nProvider';
 
 const AxDrawer = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -44,6 +45,11 @@ const AxDrawerToggle = styled(AxButton)`
   z-index: 101;
 `;
 
+const AxLanguageButtons = styled.div`
+  display: flex;
+  gap: var(--spacing-sm);
+`;
+
 interface DrawerProps
 {
   isOpen: boolean;
@@ -54,6 +60,8 @@ interface DrawerProps
 
 export function Drawer({ isOpen, onToggle, theme, onThemeChange }: DrawerProps)
 {
+  const { t, language, setLanguage } = useI18n();
+
   return (
     <>
       <AxDrawerToggle onClick={onToggle} variant="secondary">
@@ -61,14 +69,33 @@ export function Drawer({ isOpen, onToggle, theme, onThemeChange }: DrawerProps)
       </AxDrawerToggle>
       <AxDrawer $isOpen={isOpen}>
         <AxDrawerHeader>
-          <AxDrawerTitle>Settings</AxDrawerTitle>
+          <AxDrawerTitle>{t('app.settings')}</AxDrawerTitle>
         </AxDrawerHeader>
         <AxDrawerContent>
           <AxDrawerSection>
-            <AxParagraph>Theme</AxParagraph>
+            <AxParagraph>{t('app.theme')}</AxParagraph>
             <AxButton onClick={onThemeChange} variant="secondary" fullWidth>
-              {theme === 'light' ? '🌙 Switch to Dark Mode' : '☀️ Switch to Light Mode'}
+              {theme === 'light' ? t('app.switchToDark') : t('app.switchToLight')}
             </AxButton>
+          </AxDrawerSection>
+          <AxDrawerSection>
+            <AxParagraph>{t('app.language')}</AxParagraph>
+            <AxLanguageButtons>
+              <AxButton
+                onClick={() => setLanguage('en')}
+                variant={language === 'en' ? 'primary' : 'secondary'}
+                style={{ flex: 1 }}
+              >
+                English
+              </AxButton>
+              <AxButton
+                onClick={() => setLanguage('ja')}
+                variant={language === 'ja' ? 'primary' : 'secondary'}
+                style={{ flex: 1 }}
+              >
+                日本語
+              </AxButton>
+            </AxLanguageButtons>
           </AxDrawerSection>
         </AxDrawerContent>
       </AxDrawer>

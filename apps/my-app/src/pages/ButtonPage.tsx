@@ -18,79 +18,81 @@ import {
   AxDialog,
   AxParagraph,
 } from '@ui/components';
+import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function ButtonPage()
 {
+  const { t } = useI18n();
   const [primaryDialogOpen, setPrimaryDialogOpen] = useState(false);
   const [secondaryDialogOpen, setSecondaryDialogOpen] = useState(false);
   const [dangerDialogOpen, setDangerDialogOpen] = useState(false);
 
   return (
     <AxCard padding="large">
-      <AxHeading3>Variants</AxHeading3>
+      <AxHeading3><I18N l10n="button.variants" /></AxHeading3>
       <AxButtonGroup>
         <AxButton variant="primary" onClick={() => setPrimaryDialogOpen(true)}>
-          Primary
+          <I18N l10n="button.primary" />
         </AxButton>
         <AxButton variant="secondary" onClick={() => setSecondaryDialogOpen(true)}>
-          Secondary
+          <I18N l10n="button.secondary" />
         </AxButton>
         <AxButton variant="danger" onClick={() => setDangerDialogOpen(true)}>
-          Danger
+          <I18N l10n="button.danger" />
         </AxButton>
       </AxButtonGroup>
 
       <AxDialog
         open={primaryDialogOpen}
         onClose={() => setPrimaryDialogOpen(false)}
-        title="Primary Button Clicked"
+        title={t('button.primaryClicked')}
+        okButtonText={t('dialog.ok')}
       >
         <AxParagraph>
-          You clicked the Primary button! This is a primary action button typically used for
-          the main action on a page.
+          <I18N l10n="button.primaryClickedMessage" />
         </AxParagraph>
       </AxDialog>
 
       <AxDialog
         open={secondaryDialogOpen}
         onClose={() => setSecondaryDialogOpen(false)}
-        title="Secondary Button Clicked"
+        title={t('button.secondaryClicked')}
+        okButtonText={t('dialog.ok')}
       >
         <AxParagraph>
-          You clicked the Secondary button! This is a secondary action button used for
-          alternative actions.
+          <I18N l10n="button.secondaryClickedMessage" />
         </AxParagraph>
       </AxDialog>
 
       <AxDialog
         open={dangerDialogOpen}
         onClose={() => setDangerDialogOpen(false)}
-        title="Danger Button Clicked"
+        title={t('button.dangerClicked')}
+        okButtonText={t('dialog.ok')}
       >
         <AxParagraph>
-          You clicked the Danger button! This button variant is typically used for
-          destructive actions like delete or remove.
+          <I18N l10n="button.dangerClickedMessage" />
         </AxParagraph>
       </AxDialog>
 
-      <AxHeading3>Sizes</AxHeading3>
+      <AxHeading3><I18N l10n="button.sizes" /></AxHeading3>
       <AxButtonGroup>
-        <AxButton size="small">Small</AxButton>
-        <AxButton size="medium">Medium</AxButton>
-        <AxButton size="large">Large</AxButton>
+        <AxButton size="small"><I18N l10n="button.small" /></AxButton>
+        <AxButton size="medium"><I18N l10n="button.medium" /></AxButton>
+        <AxButton size="large"><I18N l10n="button.large" /></AxButton>
       </AxButtonGroup>
 
-      <AxHeading3>States</AxHeading3>
+      <AxHeading3><I18N l10n="button.states" /></AxHeading3>
       <AxButtonGroup>
-        <AxButton>Normal</AxButton>
-        <AxButton disabled>Disabled</AxButton>
-        <AxButton fullWidth>Full Width</AxButton>
+        <AxButton><I18N l10n="button.normal" /></AxButton>
+        <AxButton disabled><I18N l10n="button.disabled" /></AxButton>
+        <AxButton fullWidth><I18N l10n="button.fullWidth" /></AxButton>
       </AxButtonGroup>
 
-      <AxHeading3>Typography Examples</AxHeading3>
+      <AxHeading3><I18N l10n="button.typographyExamples" /></AxHeading3>
       <AxTypographyExample>
         <AxTypographyRow>
-          <AxTypographyLabel>Font Sizes:</AxTypographyLabel>
+          <AxTypographyLabel><I18N l10n="button.fontSizes" /></AxTypographyLabel>
           <AxButton fontSize="var(--font-size-xs)" size="small">
             XS (12px)
           </AxButton>
@@ -108,48 +110,48 @@ export function ButtonPage()
           </AxButton>
         </AxTypographyRow>
         <AxTypographyRow>
-          <AxTypographyLabel>Font Weights:</AxTypographyLabel>
+          <AxTypographyLabel><I18N l10n="button.fontWeights" /></AxTypographyLabel>
           <AxButton fontWeight="var(--font-weight-normal)">
-            Normal
+            <I18N l10n="button.normal" />
           </AxButton>
           <AxButton fontWeight="var(--font-weight-medium)">
-            Medium
+            <I18N l10n="button.medium" />
           </AxButton>
           <AxButton fontWeight="var(--font-weight-semibold)">
-            Semibold
+            <I18N l10n="button.semibold" />
           </AxButton>
           <AxButton fontWeight="var(--font-weight-bold)">
-            Bold
+            <I18N l10n="button.bold" />
           </AxButton>
         </AxTypographyRow>
         <AxTypographyRow>
-          <AxTypographyLabel>Combinations:</AxTypographyLabel>
+          <AxTypographyLabel><I18N l10n="button.combinations" /></AxTypographyLabel>
           <AxButton
             fontSize="var(--font-size-lg)"
             fontWeight="var(--font-weight-bold)"
           >
-            Large + Bold
+            <I18N l10n="button.largeBold" />
           </AxButton>
           <AxButton
             fontSize="var(--font-size-sm)"
             fontWeight="var(--font-weight-semibold)"
             size="small"
           >
-            Small + Semibold
+            <I18N l10n="button.smallSemibold" />
           </AxButton>
           <AxButton
             fontSize="var(--font-size-xl)"
             fontWeight="var(--font-weight-medium)"
           >
-            XL + Medium
+            <I18N l10n="button.xlMedium" />
           </AxButton>
         </AxTypographyRow>
       </AxTypographyExample>
 
-      <AxHeading3>Spacing Examples</AxHeading3>
+      <AxHeading3><I18N l10n="button.spacingExamples" /></AxHeading3>
       <AxSpacingExample>
         <AxSpacingRow>
-          <AxTypographyLabel>Spacing Tokens (gap between boxes):</AxTypographyLabel>
+          <AxTypographyLabel><I18N l10n="button.spacingTokens" /></AxTypographyLabel>
           <AxSpacingInfo>
             <AxSpacingItem>
               <AxSpacingLabel>XS</AxSpacingLabel>
@@ -226,7 +228,7 @@ export function ButtonPage()
           </AxSpacingInfo>
         </AxSpacingRow>
         <AxSpacingRow>
-          <AxTypographyLabel>Button Spacing Examples:</AxTypographyLabel>
+          <AxTypographyLabel><I18N l10n="button.buttonSpacingExamples" /></AxTypographyLabel>
           <AxSpacingInfo>
             <AxSpacingItem>
               <AxSpacingLabel>Gap: XS (4px)</AxSpacingLabel>

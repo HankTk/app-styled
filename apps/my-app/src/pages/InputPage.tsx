@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { AxButton, AxCard, AxInput, AxFormGroup, AxLabel } from '@ui/components';
+import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function InputPage()
 {
+  const { t } = useI18n();
   const [inputValue, setInputValue] = useState('');
   const [errorInput, setErrorInput] = useState('');
 
   return (
     <AxCard padding="large" maxWidth="500px">
       <AxFormGroup>
-        <AxLabel htmlFor="normal-input">Normal Input</AxLabel>
+        <AxLabel htmlFor="normal-input"><I18N l10n="input.normal" /></AxLabel>
         <AxInput
           id="normal-input"
           type="text"
-          placeholder="Enter text here"
+          placeholder={t('input.enterText')}
           value={inputValue}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
           fullWidth
@@ -21,11 +23,11 @@ export function InputPage()
       </AxFormGroup>
 
       <AxFormGroup>
-        <AxLabel htmlFor="error-input">Error State Input</AxLabel>
+        <AxLabel htmlFor="error-input"><I18N l10n="input.errorState" /></AxLabel>
         <AxInput
           id="error-input"
           type="text"
-          placeholder="Error occurred"
+          placeholder={t('input.errorOccurred')}
           value={errorInput}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setErrorInput(e.target.value)}
           error
@@ -34,18 +36,18 @@ export function InputPage()
       </AxFormGroup>
 
       <AxFormGroup>
-        <AxLabel htmlFor="disabled-input">Disabled Input</AxLabel>
+        <AxLabel htmlFor="disabled-input"><I18N l10n="input.disabled" /></AxLabel>
         <AxInput
           id="disabled-input"
           type="text"
-          placeholder="Disabled"
+          placeholder={t('input.disabledPlaceholder')}
           disabled
           fullWidth
         />
       </AxFormGroup>
 
       <AxButton variant="primary" fullWidth>
-        Submit
+        <I18N l10n="input.submit" />
       </AxButton>
     </AxCard>
   );

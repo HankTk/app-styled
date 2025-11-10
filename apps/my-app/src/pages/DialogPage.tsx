@@ -9,8 +9,10 @@ import {
   AxInput,
   AxLabel,
 } from '@ui/components';
+import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function DialogPage() {
+  const { t } = useI18n();
   const [openBasic, setOpenBasic] = useState(false);
   const [openWithTitle, setOpenWithTitle] = useState(false);
   const [openSmall, setOpenSmall] = useState(false);
@@ -23,164 +25,167 @@ export function DialogPage() {
   return (
     <>
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Basic Dialog</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.basic" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A simple dialog without title
+          <I18N l10n="dialog.basicDescription" />
         </AxParagraph>
-        <AxButton onClick={() => setOpenBasic(true)}>Open Basic Dialog</AxButton>
-        <AxDialog open={openBasic} onClose={() => setOpenBasic(false)}>
+        <AxButton onClick={() => setOpenBasic(true)}><I18N l10n="dialog.openBasic" /></AxButton>
+        <AxDialog open={openBasic} onClose={() => setOpenBasic(false)} okButtonText={t('dialog.ok')}>
           <AxParagraph>
-            This is a basic dialog without a title. You can close it by clicking the X button,
-            pressing ESC, or clicking outside the dialog.
+            <I18N l10n="dialog.basicMessage" />
           </AxParagraph>
         </AxDialog>
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Dialog with Title</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.withTitle" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A dialog with a title and close button
+          <I18N l10n="dialog.withTitleDescription" />
         </AxParagraph>
-        <AxButton onClick={() => setOpenWithTitle(true)}>Open Dialog with Title</AxButton>
+        <AxButton onClick={() => setOpenWithTitle(true)}><I18N l10n="dialog.openWithTitle" /></AxButton>
         <AxDialog
           open={openWithTitle}
           onClose={() => setOpenWithTitle(false)}
-          title="Dialog Title"
+          title={t('dialog.title')}
+          okButtonText={t('dialog.ok')}
         >
           <AxParagraph>
-            This dialog has a title. The title is displayed in the header along with a close button.
+            <I18N l10n="dialog.withTitleMessage" />
           </AxParagraph>
         </AxDialog>
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Dialog Sizes</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.sizes" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          Dialogs can be displayed in different sizes
+          <I18N l10n="dialog.sizesDescription" />
         </AxParagraph>
         <AxButtonGroup>
-          <AxButton onClick={() => setOpenSmall(true)}>Small</AxButton>
-          <AxButton onClick={() => setOpenLarge(true)}>Large</AxButton>
-          <AxButton onClick={() => setOpenFullscreen(true)}>Fullscreen</AxButton>
+          <AxButton onClick={() => setOpenSmall(true)}><I18N l10n="dialog.small" /></AxButton>
+          <AxButton onClick={() => setOpenLarge(true)}><I18N l10n="dialog.large" /></AxButton>
+          <AxButton onClick={() => setOpenFullscreen(true)}><I18N l10n="dialog.fullscreen" /></AxButton>
         </AxButtonGroup>
 
         <AxDialog
           open={openSmall}
           onClose={() => setOpenSmall(false)}
-          title="Small Dialog"
+          title={t('dialog.smallTitle')}
           size="small"
+          okButtonText={t('dialog.ok')}
         >
-          <AxParagraph>This is a small dialog (400px max-width).</AxParagraph>
+          <AxParagraph><I18N l10n="dialog.smallMessage" /></AxParagraph>
         </AxDialog>
 
         <AxDialog
           open={openLarge}
           onClose={() => setOpenLarge(false)}
-          title="Large Dialog"
+          title={t('dialog.largeTitle')}
           size="large"
+          okButtonText={t('dialog.ok')}
         >
-          <AxParagraph>This is a large dialog (800px max-width).</AxParagraph>
+          <AxParagraph><I18N l10n="dialog.largeMessage" /></AxParagraph>
           <AxParagraph style={{ marginTop: 'var(--spacing-md)' }}>
-            It provides more space for content that needs to be displayed.
+            <I18N l10n="dialog.largeMessage2" />
           </AxParagraph>
         </AxDialog>
 
         <AxDialog
           open={openFullscreen}
           onClose={() => setOpenFullscreen(false)}
-          title="Fullscreen Dialog"
+          title={t('dialog.fullscreenTitle')}
           size="fullscreen"
+          okButtonText={t('dialog.ok')}
         >
-          <AxParagraph>This is a fullscreen dialog that takes up the entire viewport.</AxParagraph>
+          <AxParagraph><I18N l10n="dialog.fullscreenMessage" /></AxParagraph>
           <AxParagraph style={{ marginTop: 'var(--spacing-md)' }}>
-            It's useful for displaying large amounts of content or complex forms.
+            <I18N l10n="dialog.fullscreenMessage2" />
           </AxParagraph>
         </AxDialog>
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Dialog with Footer</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.withFooter" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A dialog with custom footer actions
+          <I18N l10n="dialog.withFooterDescription" />
         </AxParagraph>
-        <AxButton onClick={() => setOpenWithFooter(true)}>Open Dialog with Footer</AxButton>
+        <AxButton onClick={() => setOpenWithFooter(true)}><I18N l10n="dialog.openWithFooter" /></AxButton>
         <AxDialog
           open={openWithFooter}
           onClose={() => setOpenWithFooter(false)}
-          title="Confirm Action"
+          title={t('dialog.confirmAction')}
           footer={
             <>
               <AxButton variant="secondary" onClick={() => setOpenWithFooter(false)}>
-                Cancel
+                <I18N l10n="dialog.cancel" />
               </AxButton>
               <AxButton variant="primary" onClick={() => setOpenWithFooter(false)}>
-                Confirm
+                <I18N l10n="dialog.confirm" />
               </AxButton>
             </>
           }
         >
-          <AxParagraph>Are you sure you want to proceed with this action?</AxParagraph>
+          <AxParagraph><I18N l10n="dialog.confirmMessage" /></AxParagraph>
         </AxDialog>
       </AxCard>
 
       <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Dialog Options</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.options" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          Dialogs can be configured with different behaviors
+          <I18N l10n="dialog.optionsDescription" />
         </AxParagraph>
-        <AxButton onClick={() => setOpenNoClose(true)}>Open Dialog (No Close Button)</AxButton>
+        <AxButton onClick={() => setOpenNoClose(true)}><I18N l10n="dialog.openNoClose" /></AxButton>
         <AxDialog
           open={openNoClose}
           onClose={() => setOpenNoClose(false)}
-          title="Dialog Without Close Button"
+          title={t('dialog.noCloseTitle')}
           showCloseButton={false}
+          okButtonText={t('dialog.ok')}
         >
           <AxParagraph>
-            This dialog doesn't have a close button in the header. You can still close it by
-            pressing ESC, clicking outside the dialog, or using the OK button in the footer.
+            <I18N l10n="dialog.noCloseMessage" />
           </AxParagraph>
         </AxDialog>
       </AxCard>
 
       <AxCard padding="large">
-        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Form Dialog</AxHeading3>
+        <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}><I18N l10n="dialog.form" /></AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
-          A dialog containing a form
+          <I18N l10n="dialog.formDescription" />
         </AxParagraph>
-        <AxButton onClick={() => setOpenForm(true)}>Open Form Dialog</AxButton>
+        <AxButton onClick={() => setOpenForm(true)}><I18N l10n="dialog.openForm" /></AxButton>
         <AxDialog
           open={openForm}
           onClose={() => setOpenForm(false)}
-          title="User Information"
-          size="medium"
+          title={t('dialog.userInformation')}
+          size="large"
           footer={
             <>
               <AxButton variant="secondary" onClick={() => setOpenForm(false)}>
-                Cancel
+                <I18N l10n="dialog.cancel" />
               </AxButton>
               <AxButton variant="primary" onClick={() => setOpenForm(false)}>
-                Save
+                <I18N l10n="dialog.save" />
               </AxButton>
             </>
           }
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
             <div>
-              <AxLabel>Name</AxLabel>
-              <AxInput placeholder="Enter your name" style={{ marginTop: 'var(--spacing-xs)' }} />
+              <AxLabel><I18N l10n="dialog.name" /></AxLabel>
+              <AxInput placeholder={t('dialog.enterName')} style={{ marginTop: 'var(--spacing-xs)' }} />
             </div>
             <div>
-              <AxLabel>Email</AxLabel>
+              <AxLabel><I18N l10n="dialog.email" /></AxLabel>
               <AxInput
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('dialog.enterEmail')}
                 style={{ marginTop: 'var(--spacing-xs)' }}
               />
             </div>
             <div>
-              <AxLabel>Message</AxLabel>
+              <AxLabel><I18N l10n="dialog.message" /></AxLabel>
               <AxInput
-                placeholder="Enter your message"
+                placeholder={t('dialog.enterMessage')}
                 style={{ marginTop: 'var(--spacing-xs)' }}
               />
             </div>
