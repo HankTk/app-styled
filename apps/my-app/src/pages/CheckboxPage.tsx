@@ -4,7 +4,7 @@ import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function CheckboxPage()
 {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
   const [checkbox1, setCheckbox1] = useState(false);
   const [checkbox2, setCheckbox2] = useState(true);
   const [checkbox3, setCheckbox3] = useState(false);
@@ -19,7 +19,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-basic-1"
-            label={t('checkbox.option1')}
+            label={l10n('checkbox.option1')}
             checked={checkbox1}
             onChange={(e) => setCheckbox1(e.target.checked)}
           />
@@ -27,7 +27,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-basic-2"
-            label={t('checkbox.option2')}
+            label={l10n('checkbox.option2')}
             checked={checkbox2}
             onChange={(e) => setCheckbox2(e.target.checked)}
           />
@@ -35,7 +35,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-basic-3"
-            label={t('checkbox.option3')}
+            label={l10n('checkbox.option3')}
             checked={checkbox3}
             onChange={(e) => setCheckbox3(e.target.checked)}
           />
@@ -49,7 +49,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-normal"
-            label={t('checkbox.normal')}
+            label={l10n('checkbox.normal')}
             checked={checkbox4}
             onChange={(e) => setCheckbox4(e.target.checked)}
           />
@@ -57,7 +57,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-error"
-            label={t('checkbox.errorState')}
+            label={l10n('checkbox.errorState')}
             error
             checked={false}
           />
@@ -65,7 +65,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-disabled"
-            label={t('checkbox.disabled')}
+            label={l10n('checkbox.disabled')}
             disabled
             checked={false}
           />
@@ -73,7 +73,7 @@ export function CheckboxPage()
         <AxFormGroup>
           <AxCheckbox
             id="checkbox-disabled-checked"
-            label={t('checkbox.disabledChecked')}
+            label={l10n('checkbox.disabledChecked')}
             disabled
             checked
           />

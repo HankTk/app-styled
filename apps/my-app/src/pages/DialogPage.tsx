@@ -12,7 +12,7 @@ import {
 import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function DialogPage() {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
   const [openBasic, setOpenBasic] = useState(false);
   const [openWithTitle, setOpenWithTitle] = useState(false);
   const [openSmall, setOpenSmall] = useState(false);
@@ -30,7 +30,7 @@ export function DialogPage() {
           <I18N l10n="dialog.basicDescription" />
         </AxParagraph>
         <AxButton onClick={() => setOpenBasic(true)}><I18N l10n="dialog.openBasic" /></AxButton>
-        <AxDialog open={openBasic} onClose={() => setOpenBasic(false)} okButtonText={t('dialog.ok')}>
+        <AxDialog open={openBasic} onClose={() => setOpenBasic(false)} okButtonText={l10n('dialog.ok')}>
           <AxParagraph>
             <I18N l10n="dialog.basicMessage" />
           </AxParagraph>
@@ -46,8 +46,8 @@ export function DialogPage() {
         <AxDialog
           open={openWithTitle}
           onClose={() => setOpenWithTitle(false)}
-          title={t('dialog.title')}
-          okButtonText={t('dialog.ok')}
+          title={l10n('dialog.title')}
+          okButtonText={l10n('dialog.ok')}
         >
           <AxParagraph>
             <I18N l10n="dialog.withTitleMessage" />
@@ -69,9 +69,9 @@ export function DialogPage() {
         <AxDialog
           open={openSmall}
           onClose={() => setOpenSmall(false)}
-          title={t('dialog.smallTitle')}
+          title={l10n('dialog.smallTitle')}
           size="small"
-          okButtonText={t('dialog.ok')}
+          okButtonText={l10n('dialog.ok')}
         >
           <AxParagraph><I18N l10n="dialog.smallMessage" /></AxParagraph>
         </AxDialog>
@@ -79,9 +79,9 @@ export function DialogPage() {
         <AxDialog
           open={openLarge}
           onClose={() => setOpenLarge(false)}
-          title={t('dialog.largeTitle')}
+          title={l10n('dialog.largeTitle')}
           size="large"
-          okButtonText={t('dialog.ok')}
+          okButtonText={l10n('dialog.ok')}
         >
           <AxParagraph><I18N l10n="dialog.largeMessage" /></AxParagraph>
           <AxParagraph style={{ marginTop: 'var(--spacing-md)' }}>
@@ -92,9 +92,9 @@ export function DialogPage() {
         <AxDialog
           open={openFullscreen}
           onClose={() => setOpenFullscreen(false)}
-          title={t('dialog.fullscreenTitle')}
+          title={l10n('dialog.fullscreenTitle')}
           size="fullscreen"
-          okButtonText={t('dialog.ok')}
+          okButtonText={l10n('dialog.ok')}
         >
           <AxParagraph><I18N l10n="dialog.fullscreenMessage" /></AxParagraph>
           <AxParagraph style={{ marginTop: 'var(--spacing-md)' }}>
@@ -112,7 +112,7 @@ export function DialogPage() {
         <AxDialog
           open={openWithFooter}
           onClose={() => setOpenWithFooter(false)}
-          title={t('dialog.confirmAction')}
+          title={l10n('dialog.confirmAction')}
           footer={
             <>
               <AxButton variant="secondary" onClick={() => setOpenWithFooter(false)}>
@@ -137,9 +137,9 @@ export function DialogPage() {
         <AxDialog
           open={openNoClose}
           onClose={() => setOpenNoClose(false)}
-          title={t('dialog.noCloseTitle')}
+          title={l10n('dialog.noCloseTitle')}
           showCloseButton={false}
-          okButtonText={t('dialog.ok')}
+          okButtonText={l10n('dialog.ok')}
         >
           <AxParagraph>
             <I18N l10n="dialog.noCloseMessage" />
@@ -156,7 +156,7 @@ export function DialogPage() {
         <AxDialog
           open={openForm}
           onClose={() => setOpenForm(false)}
-          title={t('dialog.userInformation')}
+          title={l10n('dialog.userInformation')}
           size="large"
           footer={
             <>
@@ -172,20 +172,20 @@ export function DialogPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
             <div>
               <AxLabel><I18N l10n="dialog.name" /></AxLabel>
-              <AxInput placeholder={t('dialog.enterName')} style={{ marginTop: 'var(--spacing-xs)' }} />
+              <AxInput placeholder={l10n('dialog.enterName')} style={{ marginTop: 'var(--spacing-xs)' }} />
             </div>
             <div>
               <AxLabel><I18N l10n="dialog.email" /></AxLabel>
               <AxInput
                 type="email"
-                placeholder={t('dialog.enterEmail')}
+                placeholder={l10n('dialog.enterEmail')}
                 style={{ marginTop: 'var(--spacing-xs)' }}
               />
             </div>
             <div>
               <AxLabel><I18N l10n="dialog.message" /></AxLabel>
               <AxInput
-                placeholder={t('dialog.enterMessage')}
+                placeholder={l10n('dialog.enterMessage')}
                 style={{ marginTop: 'var(--spacing-xs)' }}
               />
             </div>

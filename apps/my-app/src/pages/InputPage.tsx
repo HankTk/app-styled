@@ -4,7 +4,7 @@ import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function InputPage()
 {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
   const [inputValue, setInputValue] = useState('');
   const [errorInput, setErrorInput] = useState('');
   const [emailValue, setEmailValue] = useState('');
@@ -29,7 +29,7 @@ export function InputPage()
           <AxInput
             id="normal-input"
             type="text"
-            placeholder={t('input.enterText')}
+            placeholder={l10n('input.enterText')}
             value={inputValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
             fullWidth
@@ -41,7 +41,7 @@ export function InputPage()
           <AxInput
             id="error-input"
             type="text"
-            placeholder={t('input.errorOccurred')}
+            placeholder={l10n('input.errorOccurred')}
             value={errorInput}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setErrorInput(e.target.value)}
             error
@@ -54,7 +54,7 @@ export function InputPage()
           <AxInput
             id="disabled-input"
             type="text"
-            placeholder={t('input.disabledPlaceholder')}
+            placeholder={l10n('input.disabledPlaceholder')}
             disabled
             fullWidth
           />
@@ -74,7 +74,7 @@ export function InputPage()
           <AxInput
             id="text-input"
             type="text"
-            placeholder={t('input.textPlaceholder')}
+            placeholder={l10n('input.textPlaceholder')}
             fullWidth
           />
         </AxFormGroup>
@@ -84,7 +84,7 @@ export function InputPage()
           <AxInput
             id="email-input"
             type="email"
-            placeholder={t('input.emailPlaceholder')}
+            placeholder={l10n('input.emailPlaceholder')}
             value={emailValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmailValue(e.target.value)}
             fullWidth
@@ -96,7 +96,7 @@ export function InputPage()
           <AxInput
             id="password-input"
             type="password"
-            placeholder={t('input.passwordPlaceholder')}
+            placeholder={l10n('input.passwordPlaceholder')}
             value={passwordValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPasswordValue(e.target.value)}
             fullWidth
@@ -108,7 +108,7 @@ export function InputPage()
           <AxInput
             id="number-input"
             type="number"
-            placeholder={t('input.numberPlaceholder')}
+            placeholder={l10n('input.numberPlaceholder')}
             value={numberValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNumberValue(e.target.value)}
             fullWidth
@@ -120,7 +120,7 @@ export function InputPage()
           <AxInput
             id="tel-input"
             type="tel"
-            placeholder={t('input.telPlaceholder')}
+            placeholder={l10n('input.telPlaceholder')}
             value={telValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTelValue(e.target.value)}
             fullWidth
@@ -132,7 +132,7 @@ export function InputPage()
           <AxInput
             id="url-input"
             type="url"
-            placeholder={t('input.urlPlaceholder')}
+            placeholder={l10n('input.urlPlaceholder')}
             value={urlValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUrlValue(e.target.value)}
             fullWidth
@@ -144,7 +144,7 @@ export function InputPage()
           <AxInput
             id="search-input"
             type="search"
-            placeholder={t('input.searchPlaceholder')}
+            placeholder={l10n('input.searchPlaceholder')}
             value={searchValue}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
             fullWidth

@@ -22,7 +22,7 @@ import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function ButtonPage()
 {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
   const [primaryDialogOpen, setPrimaryDialogOpen] = useState(false);
   const [secondaryDialogOpen, setSecondaryDialogOpen] = useState(false);
   const [dangerDialogOpen, setDangerDialogOpen] = useState(false);
@@ -45,8 +45,8 @@ export function ButtonPage()
       <AxDialog
         open={primaryDialogOpen}
         onClose={() => setPrimaryDialogOpen(false)}
-        title={t('button.primaryClicked')}
-        okButtonText={t('dialog.ok')}
+        title={l10n('button.primaryClicked')}
+        okButtonText={l10n('dialog.ok')}
       >
         <AxParagraph>
           <I18N l10n="button.primaryClickedMessage" />
@@ -56,8 +56,8 @@ export function ButtonPage()
       <AxDialog
         open={secondaryDialogOpen}
         onClose={() => setSecondaryDialogOpen(false)}
-        title={t('button.secondaryClicked')}
-        okButtonText={t('dialog.ok')}
+        title={l10n('button.secondaryClicked')}
+        okButtonText={l10n('dialog.ok')}
       >
         <AxParagraph>
           <I18N l10n="button.secondaryClickedMessage" />
@@ -67,8 +67,8 @@ export function ButtonPage()
       <AxDialog
         open={dangerDialogOpen}
         onClose={() => setDangerDialogOpen(false)}
-        title={t('button.dangerClicked')}
-        okButtonText={t('dialog.ok')}
+        title={l10n('button.dangerClicked')}
+        okButtonText={l10n('dialog.ok')}
       >
         <AxParagraph>
           <I18N l10n="button.dangerClickedMessage" />

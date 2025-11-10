@@ -3,15 +3,15 @@ import { AxCard, AxListbox, AxFormGroup, AxLabel, ListboxOption } from '@ui/comp
 import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function ListboxPage() {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
   
   const sampleOptions: ListboxOption[] = useMemo(() => [
-    { value: 'option1', label: t('listbox.option1') },
-    { value: 'option2', label: t('listbox.option2') },
-    { value: 'option3', label: t('listbox.option3') },
-    { value: 'option4', label: t('listbox.option4') },
-    { value: 'option5', label: t('listbox.option5') },
-  ], [t]);
+    { value: 'option1', label: l10n('listbox.option1') },
+    { value: 'option2', label: l10n('listbox.option2') },
+    { value: 'option3', label: l10n('listbox.option3') },
+    { value: 'option4', label: l10n('listbox.option4') },
+    { value: 'option5', label: l10n('listbox.option5') },
+  ], [l10n]);
 
   const searchableOptions: ListboxOption[] = useMemo(() => [
     { value: 'apple', label: 'Apple' },
@@ -29,12 +29,12 @@ export function ListboxPage() {
   ], []);
 
   const sampleOptionsWithDisabled: ListboxOption[] = useMemo(() => [
-    { value: 'option1', label: t('listbox.option1') },
-    { value: 'option2', label: t('listbox.option2'), disabled: true },
-    { value: 'option3', label: t('listbox.option3') },
-    { value: 'option4', label: t('listbox.option4'), disabled: true },
-    { value: 'option5', label: t('listbox.option5') },
-  ], [t]);
+    { value: 'option1', label: l10n('listbox.option1') },
+    { value: 'option2', label: l10n('listbox.option2'), disabled: true },
+    { value: 'option3', label: l10n('listbox.option3') },
+    { value: 'option4', label: l10n('listbox.option4'), disabled: true },
+    { value: 'option5', label: l10n('listbox.option5') },
+  ], [l10n]);
   const [singleValue, setSingleValue] = useState<string>('');
   const [multipleValue, setMultipleValue] = useState<string[]>([]);
   const [errorValue, setErrorValue] = useState<string>('');
@@ -51,7 +51,7 @@ export function ListboxPage() {
             options={sampleOptions}
             value={singleValue}
             onChange={(value) => setSingleValue(value as string)}
-            placeholder={t('listbox.selectPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
             fullWidth
           />
         </AxFormGroup>
@@ -63,12 +63,12 @@ export function ListboxPage() {
             value={multipleValue}
             onChange={(value) => setMultipleValue(value as string[])}
             multiple
-            placeholder={t('listbox.selectPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
             fullWidth
           />
           {multipleValue.length > 0 && (
             <div style={{ marginTop: 'var(--spacing-sm)', fontSize: 'var(--font-size-sm)', color: 'var(--color-text-secondary)' }}>
-              {t('listbox.selected')}: {multipleValue.join(', ')}
+              {l10n('listbox.selected')}: {multipleValue.join(', ')}
             </div>
           )}
         </AxFormGroup>
@@ -80,7 +80,7 @@ export function ListboxPage() {
             value={errorValue}
             onChange={(value) => setErrorValue(value as string)}
             error
-            placeholder={t('listbox.selectPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
             fullWidth
           />
         </AxFormGroup>
@@ -92,7 +92,7 @@ export function ListboxPage() {
             value={disabledValue}
             onChange={(value) => setDisabledValue(value as string)}
             disabled
-            placeholder={t('listbox.selectPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
             fullWidth
           />
         </AxFormGroup>
@@ -103,7 +103,7 @@ export function ListboxPage() {
             options={sampleOptionsWithDisabled}
             value={singleValue}
             onChange={(value) => setSingleValue(value as string)}
-            placeholder={t('listbox.selectPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
             fullWidth
           />
         </AxFormGroup>
@@ -117,9 +117,9 @@ export function ListboxPage() {
             value={searchableValue}
             onChange={(value) => setSearchableValue(value as string)}
             searchable
-            searchPlaceholder={t('listbox.searchPlaceholder')}
-            placeholder={t('listbox.selectPlaceholder')}
-            noResultsText={t('listbox.noResults')}
+            searchPlaceholder={l10n('listbox.searchPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
+            noResultsText={l10n('listbox.noResults')}
             fullWidth
           />
         </AxFormGroup>
@@ -132,14 +132,14 @@ export function ListboxPage() {
             onChange={(value) => setSearchableMultipleValue(value as string[])}
             searchable
             multiple
-            searchPlaceholder={t('listbox.searchPlaceholder')}
-            placeholder={t('listbox.selectPlaceholder')}
-            noResultsText={t('listbox.noResults')}
+            searchPlaceholder={l10n('listbox.searchPlaceholder')}
+            placeholder={l10n('listbox.selectPlaceholder')}
+            noResultsText={l10n('listbox.noResults')}
             fullWidth
           />
           {searchableMultipleValue.length > 0 && (
             <div style={{ marginTop: 'var(--spacing-sm)', fontSize: 'var(--font-size-sm)', color: 'var(--color-text-secondary)' }}>
-              {t('listbox.selected')}: {searchableMultipleValue.join(', ')}
+              {l10n('listbox.selected')}: {searchableMultipleValue.join(', ')}
             </div>
           )}
         </AxFormGroup>
@@ -150,35 +150,35 @@ export function ListboxPage() {
           <AxLabel><I18N l10n="listbox.sizes" /></AxLabel>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
             <div>
-              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{t('listbox.small')}</AxLabel>
+              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{l10n('listbox.small')}</AxLabel>
               <AxListbox
                 options={sampleOptions}
                 value={singleValue}
                 onChange={(value) => setSingleValue(value as string)}
                 size="small"
-                placeholder={t('listbox.selectPlaceholder')}
+                placeholder={l10n('listbox.selectPlaceholder')}
                 fullWidth
               />
             </div>
             <div>
-              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{t('listbox.medium')}</AxLabel>
+              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{l10n('listbox.medium')}</AxLabel>
               <AxListbox
                 options={sampleOptions}
                 value={singleValue}
                 onChange={(value) => setSingleValue(value as string)}
                 size="medium"
-                placeholder={t('listbox.selectPlaceholder')}
+                placeholder={l10n('listbox.selectPlaceholder')}
                 fullWidth
               />
             </div>
             <div>
-              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{t('listbox.large')}</AxLabel>
+              <AxLabel style={{ marginBottom: 'var(--spacing-xs)' }}>{l10n('listbox.large')}</AxLabel>
               <AxListbox
                 options={sampleOptions}
                 value={singleValue}
                 onChange={(value) => setSingleValue(value as string)}
                 size="large"
-                placeholder={t('listbox.selectPlaceholder')}
+                placeholder={l10n('listbox.selectPlaceholder')}
                 fullWidth
               />
             </div>

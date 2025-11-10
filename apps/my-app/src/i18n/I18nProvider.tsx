@@ -7,6 +7,7 @@ export type Language = 'en' | 'ja';
 interface I18nContextType {
   language: Language;
   t: (key: string) => string;
+  l10n: (key: string) => string;
   setLanguage: (language: Language) => void;
 }
 
@@ -50,12 +51,15 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
     return translations[language][key] || key;
   };
 
+  // l10n is an alias for t
+  const l10n = t;
+
   const setLanguage = (newLanguage: Language) => {
     setLanguageState(newLanguage);
   };
 
   return (
-    <I18nContext.Provider value={{ language, t, setLanguage }}>
+    <I18nContext.Provider value={{ language, t, l10n, setLanguage }}>
       {children}
     </I18nContext.Provider>
   );
@@ -73,6 +77,12 @@ export const useI18n = (): I18nContextType => {
 export const useT = (): ((key: string) => string) => {
   const { t } = useI18n();
   return t;
+};
+
+// Short alias for l10n function
+export const useL10n = (): ((key: string) => string) => {
+  const { l10n } = useI18n();
+  return l10n;
 };
 
 // Component wrapper for concise translation

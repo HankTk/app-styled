@@ -3,7 +3,7 @@ import { I18N, useI18n } from '../i18n/I18nProvider';
 
 export function CombinationPage()
 {
-  const { t } = useI18n();
+  const { l10n } = useI18n();
 
   return (
     <AxCard elevation={2} padding="large">
@@ -15,7 +15,7 @@ export function CombinationPage()
         <AxInput
           id="email"
           type="email"
-          placeholder={t('combination.emailPlaceholder')}
+          placeholder={l10n('combination.emailPlaceholder')}
           fullWidth
         />
       </AxFormGroup>
@@ -24,7 +24,7 @@ export function CombinationPage()
         <AxInput
           id="password"
           type="password"
-          placeholder={t('combination.passwordPlaceholder')}
+          placeholder={l10n('combination.passwordPlaceholder')}
           fullWidth
         />
       </AxFormGroup>
