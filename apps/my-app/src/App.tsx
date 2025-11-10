@@ -7,11 +7,15 @@ import { Drawer } from './components/Drawer';
 import { ButtonPage } from './pages/ButtonPage';
 import { CardPage } from './pages/CardPage';
 import { InputPage } from './pages/InputPage';
+import { CheckboxPage } from './pages/CheckboxPage';
+import { RadioPage } from './pages/RadioPage';
 import { CombinationPage } from './pages/CombinationPage';
 import { TablePage } from './pages/TablePage';
 import { ChartPage } from './pages/ChartPage';
 import { DialogPage } from './pages/DialogPage';
 import { DateRangePickerPage } from './pages/DateRangePickerPage';
+import { ProgressPage } from './pages/ProgressPage';
+import { ListboxPage } from './pages/ListboxPage';
 
 const AxMainContent = styled.div`
   padding: var(--spacing-4xl) var(--spacing-xl);
@@ -25,11 +29,15 @@ const pages: Record<string, { component: React.ComponentType; titleKey: string }
   button: { component: ButtonPage, titleKey: 'page.button' },
   card: { component: CardPage, titleKey: 'page.card' },
   input: { component: InputPage, titleKey: 'page.input' },
+  checkbox: { component: CheckboxPage, titleKey: 'page.checkbox' },
+  radio: { component: RadioPage, titleKey: 'page.radio' },
   table: { component: TablePage, titleKey: 'page.table' },
   chart: { component: ChartPage, titleKey: 'page.chart' },
   dialog: { component: DialogPage, titleKey: 'page.dialog' },
   combination: { component: CombinationPage, titleKey: 'page.combination' },
   dateRangePicker: { component: DateRangePickerPage, titleKey: 'page.dateRangePicker' },
+  progress: { component: ProgressPage, titleKey: 'page.progress' },
+  listbox: { component: ListboxPage, titleKey: 'page.listbox' },
 };
 
 function AppContent()

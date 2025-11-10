@@ -72,11 +72,15 @@ const menuItems = [
   { id: 'button', labelKey: 'sidebar.button' },
   { id: 'card', labelKey: 'sidebar.card' },
   { id: 'input', labelKey: 'sidebar.input' },
+  { id: 'checkbox', labelKey: 'sidebar.checkbox' },
+  { id: 'radio', labelKey: 'sidebar.radio' },
   { id: 'table', labelKey: 'sidebar.table' },
   { id: 'chart', labelKey: 'sidebar.chart' },
   { id: 'dialog', labelKey: 'sidebar.dialog' },
   { id: 'combination', labelKey: 'sidebar.combination' },
   { id: 'dateRangePicker', labelKey: 'sidebar.dateRangePicker' },
+  { id: 'progress', labelKey: 'sidebar.progress' },
+  { id: 'listbox', labelKey: 'sidebar.listbox' },
 ];
 
 export function Sidebar({ currentPage, onPageChange }: SidebarProps)
