@@ -115,10 +115,42 @@ const StyledDialogContent = styled.div`
 const StyledDialogFooter = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Buttons aligned to the right by default */
   gap: var(--spacing-md);
   padding: var(--spacing-xl);
   border-top: 1px solid var(--color-border-default);
+`;
+
+const StyledOkButton = styled.button`
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-sm) + 2px) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-active);
+  }
+
+  &:disabled {
+    background-color: var(--color-disabled);
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
 `;
 
 export const AxDialog: React.FC<AxDialogProps> = ({
@@ -127,9 +159,9 @@ export const AxDialog: React.FC<AxDialogProps> = ({
   title,
   children,
   size = 'medium',
-  closeOnOverlayClick = true,
+  closeOnOverlayClick = false,
   closeOnEscape = true,
-  showCloseButton = true,
+  showCloseButton = false,
   footer,
 }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -175,7 +207,11 @@ export const AxDialog: React.FC<AxDialogProps> = ({
       >
         {(title || showCloseButton) && (
           <StyledDialogHeader>
-            {title && <StyledDialogTitle>{title}</StyledDialogTitle>}
+            {title ? (
+              <StyledDialogTitle>{title}</StyledDialogTitle>
+            ) : (
+              <div></div>
+            )}
             {showCloseButton && (
               <StyledCloseButton onClick={onClose} aria-label="Close dialog">
                 ×
@@ -184,7 +220,13 @@ export const AxDialog: React.FC<AxDialogProps> = ({
           </StyledDialogHeader>
         )}
         <StyledDialogContent>{children}</StyledDialogContent>
-        {footer && <StyledDialogFooter>{footer}</StyledDialogFooter>}
+        {footer ? (
+          <StyledDialogFooter>{footer}</StyledDialogFooter>
+        ) : (
+          <StyledDialogFooter>
+            <StyledOkButton onClick={onClose}>OK</StyledOkButton>
+          </StyledDialogFooter>
+        )}
       </StyledDialog>
     </StyledOverlay>
   );

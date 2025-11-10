@@ -21,7 +21,7 @@ export function TablePage() {
 
   return (
     <>
-      <AxCard padding="large">
+      <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
         <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Default Table</AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
           A basic table with default styling
@@ -50,7 +50,7 @@ export function TablePage() {
         </AxTable>
       </AxCard>
 
-      <AxCard padding="large">
+      <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
         <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Bordered Table</AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
           A table with borders around cells
@@ -79,7 +79,7 @@ export function TablePage() {
         </AxTable>
       </AxCard>
 
-      <AxCard padding="large">
+      <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
         <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Striped Table</AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
           A table with alternating row colors
@@ -108,7 +108,7 @@ export function TablePage() {
         </AxTable>
       </AxCard>
 
-      <AxCard padding="large">
+      <AxCard padding="large" style={{ marginBottom: 'var(--spacing-2xl)' }}>
         <AxHeading3 style={{ marginBottom: 'var(--spacing-sm)' }}>Table Sizes</AxHeading3>
         <AxParagraph style={{ marginBottom: 'var(--spacing-xl)' }}>
           Tables with different font sizes

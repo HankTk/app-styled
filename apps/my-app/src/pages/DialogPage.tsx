@@ -137,15 +137,8 @@ export function DialogPage() {
         >
           <AxParagraph>
             This dialog doesn't have a close button in the header. You can still close it by
-            pressing ESC or clicking outside the dialog.
+            pressing ESC, clicking outside the dialog, or using the OK button in the footer.
           </AxParagraph>
-          <AxButton
-            variant="primary"
-            onClick={() => setOpenNoClose(false)}
-            style={{ marginTop: 'var(--spacing-md)' }}
-          >
-            Close Dialog
-          </AxButton>
         </AxDialog>
       </AxCard>
 
