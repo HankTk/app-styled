@@ -16,6 +16,7 @@ export const ja = {
   'page.chart': 'チャートコンポーネント',
   'page.dialog': 'ダイアログコンポーネント',
   'page.combination': '組み合わせ例',
+  'page.dateRangePicker': '日付範囲ピッカーコンポーネント',
   
   // Sidebar
   'sidebar.title': 'UI ライブラリ',
@@ -27,6 +28,7 @@ export const ja = {
   'sidebar.chart': 'チャート',
   'sidebar.dialog': 'ダイアログ',
   'sidebar.combination': '組み合わせ',
+  'sidebar.dateRangePicker': '日付範囲ピッカー',
   
   // Button Page
   'button.variants': 'バリアント',

@@ -4,12 +4,14 @@ export { AxInput } from './components/AxInput';
 export { AxTable, AxTableHead, AxTableBody, AxTableRow, AxTableHeader, AxTableCell } from './components/AxTable';
 export { AxChart } from './components/AxChart';
 export { AxDialog } from './components/AxDialog';
+export { AxDateRangePicker } from './components/AxDateRangePicker';
 export type { AxButtonProps } from './components/AxButton';
 export type { AxCardProps } from './components/AxCard';
 export type { AxInputProps } from './components/AxInput';
 export type { AxTableProps, AxTableRowProps, AxTableHeaderProps, AxTableCellProps } from './components/AxTable';
 export type { AxChartProps } from './components/AxChart';
 export type { AxDialogProps } from './components/AxDialog';
+export type { AxDateRangePickerProps } from './components/AxDateRangePicker';
 export { ThemeProvider, useTheme } from './theme/ThemeProvider';
 
 // Export styled components - Layout

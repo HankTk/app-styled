@@ -11,11 +11,14 @@ import { CombinationPage } from './pages/CombinationPage';
 import { TablePage } from './pages/TablePage';
 import { ChartPage } from './pages/ChartPage';
 import { DialogPage } from './pages/DialogPage';
+import { DateRangePickerPage } from './pages/DateRangePickerPage';
 
 const AxMainContent = styled.div`
-  margin-left: 280px;
   padding: var(--spacing-4xl) var(--spacing-xl);
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 100px;
 `;
 
 const pages: Record<string, { component: React.ComponentType; titleKey: string }> = {
@@ -26,6 +29,7 @@ const pages: Record<string, { component: React.ComponentType; titleKey: string }
   chart: { component: ChartPage, titleKey: 'page.chart' },
   dialog: { component: DialogPage, titleKey: 'page.dialog' },
   combination: { component: CombinationPage, titleKey: 'page.combination' },
+  dateRangePicker: { component: DateRangePickerPage, titleKey: 'page.dateRangePicker' },
 };
 
 function AppContent()

@@ -16,6 +16,7 @@ export const en = {
   'page.chart': 'Chart Component',
   'page.dialog': 'Dialog Component',
   'page.combination': 'Combination Example',
+  'page.dateRangePicker': 'Date Range Picker Component',
   
   // Sidebar
   'sidebar.title': 'UI Library',
@@ -27,6 +28,7 @@ export const en = {
   'sidebar.chart': 'Chart',
   'sidebar.dialog': 'Dialog',
   'sidebar.combination': 'Combination',
+  'sidebar.dateRangePicker': 'Date Range Picker',
   
   // Button Page
   'button.variants': 'Variants',

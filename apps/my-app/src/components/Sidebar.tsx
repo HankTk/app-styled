@@ -76,6 +76,7 @@ const menuItems = [
   { id: 'chart', labelKey: 'sidebar.chart' },
   { id: 'dialog', labelKey: 'sidebar.dialog' },
   { id: 'combination', labelKey: 'sidebar.combination' },
+  { id: 'dateRangePicker', labelKey: 'sidebar.dateRangePicker' },
 ];
 
 export function Sidebar({ currentPage, onPageChange }: SidebarProps)
