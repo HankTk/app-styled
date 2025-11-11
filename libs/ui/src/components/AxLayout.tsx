@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const AxContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-4xl) var(--spacing-xl);
   background-color: var(--color-background-page);
   min-height: 100vh;
   transition: background-color var(--transition-base);

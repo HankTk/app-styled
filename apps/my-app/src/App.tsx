@@ -1,4 +1,8 @@
-import { ThemeProvider, AxHeader, AxTitle, AxSubtitle, AxSection, AxSectionTitle } from '@ui/components';
+import { useState } from 'react';
+import { ThemeProvider, useTheme, AxHeader, AxTitle, AxSubtitle, AxSection, AxSectionTitle, AxContainer } from '@ui/components';
+import { I18nProvider, useI18n } from './i18n/I18nProvider';
+import { Sidebar } from './components/Sidebar';
+import { Drawer } from './components/Drawer';
 import { AccountListingPage } from './pages/AccountListingPage';
 import styled from 'styled-components';
 
@@ -41,28 +45,50 @@ const CompactSectionTitle = styled(AxSectionTitle)`
 `;
 
 function AppContent() {
+  const [currentPage, setCurrentPage] = useState('accounts');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const { t } = useI18n();
+
   return (
-    <AppContainer>
-      <AxMainContent>
-        <CompactHeader>
-          <div>
-            <AxTitle>Account Management</AxTitle>
-            <AxSubtitle>Manage user accounts and access</AxSubtitle>
-          </div>
-        </CompactHeader>
-        <ContentSection>
-          <CompactSectionTitle>Account Listing</CompactSectionTitle>
-          <AccountListingPage />
-        </ContentSection>
-      </AxMainContent>
-    </AppContainer>
+    <AxContainer>
+      <Sidebar
+        isOpen={sidebarOpen}
+        onToggle={() => setSidebarOpen(!sidebarOpen)}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+      <Drawer
+        isOpen={drawerOpen}
+        onToggle={() => setDrawerOpen(!drawerOpen)}
+        theme={theme}
+        onThemeChange={toggleTheme}
+      />
+      <AppContainer>
+        <AxMainContent>
+          <CompactHeader>
+            <div>
+              <AxTitle>{t('app.title')}</AxTitle>
+              <AxSubtitle>{t('app.subtitle')}</AxSubtitle>
+            </div>
+          </CompactHeader>
+          <ContentSection>
+            <CompactSectionTitle>{t('account.title')}</CompactSectionTitle>
+            <AccountListingPage />
+          </ContentSection>
+        </AxMainContent>
+      </AppContainer>
+    </AxContainer>
   );
 }
 
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <I18nProvider>
+        <AppContent />
+      </I18nProvider>
     </ThemeProvider>
   );
 }

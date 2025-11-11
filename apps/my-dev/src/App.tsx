@@ -22,7 +22,7 @@ const AxMainContent = styled.div`
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  margin-left: 100px;
+  margin-left: calc(280px / 2);
 `;
 
 const pages: Record<string, { component: React.ComponentType; titleKey: string }> = {

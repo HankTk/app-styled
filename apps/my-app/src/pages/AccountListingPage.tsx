@@ -10,6 +10,7 @@ import {
   AxParagraph,
   AxButton,
 } from '@ui/components';
+import { useI18n } from '../i18n/I18nProvider';
 import styled from 'styled-components';
 
 const PageContainer = styled.div`
@@ -52,6 +53,7 @@ interface Account {
 }
 
 export function AccountListingPage() {
+  const { t } = useI18n();
   const accounts: Account[] = [
     {
       id: 'ACC-001',
@@ -122,19 +124,32 @@ export function AccountListingPage() {
     }
   };
 
+  const getStatusLabel = (status: Account['status']) => {
+    switch (status) {
+      case 'Active':
+        return t('account.status.active');
+      case 'Inactive':
+        return t('account.status.inactive');
+      case 'Pending':
+        return t('account.status.pending');
+      default:
+        return status;
+    }
+  };
+
   return (
     <PageContainer>
       <HeaderCard padding="large">
         <HeaderSection>
           <div>
             <AxHeading3 style={{ marginBottom: 'var(--spacing-xs)' }}>
-              Accounts
+              {t('account.title')}
             </AxHeading3>
             <AxParagraph style={{ color: 'var(--color-text-secondary)' }}>
-              Manage and view all user accounts
+              {t('account.subtitle')}
             </AxParagraph>
           </div>
-          <AxButton variant="primary">Add New Account</AxButton>
+          <AxButton variant="primary">{t('account.addNew')}</AxButton>
         </HeaderSection>
       </HeaderCard>
 
@@ -143,14 +158,14 @@ export function AccountListingPage() {
           <AxTable fullWidth>
             <AxTableHead>
               <AxTableRow>
-                <AxTableHeader>Account ID</AxTableHeader>
-                <AxTableHeader>Name</AxTableHeader>
-                <AxTableHeader>Email</AxTableHeader>
-                <AxTableHeader>Account Type</AxTableHeader>
-                <AxTableHeader>Status</AxTableHeader>
-                <AxTableHeader align="right">Balance</AxTableHeader>
-                <AxTableHeader>Created At</AxTableHeader>
-                <AxTableHeader align="center">Actions</AxTableHeader>
+                <AxTableHeader>{t('account.id')}</AxTableHeader>
+                <AxTableHeader>{t('account.name')}</AxTableHeader>
+                <AxTableHeader>{t('account.email')}</AxTableHeader>
+                <AxTableHeader>{t('account.type')}</AxTableHeader>
+                <AxTableHeader>{t('account.status')}</AxTableHeader>
+                <AxTableHeader align="right">{t('account.balance')}</AxTableHeader>
+                <AxTableHeader>{t('account.createdAt')}</AxTableHeader>
+                <AxTableHeader align="center">{t('account.actions')}</AxTableHeader>
               </AxTableRow>
             </AxTableHead>
             <AxTableBody>
@@ -167,7 +182,7 @@ export function AccountListingPage() {
                         fontWeight: 500,
                       }}
                     >
-                      {account.status}
+                      {getStatusLabel(account.status)}
                     </span>
                   </AxTableCell>
                   <AxTableCell align="right">{account.balance}</AxTableCell>
@@ -175,10 +190,10 @@ export function AccountListingPage() {
                   <AxTableCell align="center">
                     <div style={{ display: 'flex', gap: 'var(--spacing-sm)', justifyContent: 'center' }}>
                       <AxButton variant="secondary" size="small">
-                        View
+                        {t('account.view')}
                       </AxButton>
                       <AxButton variant="secondary" size="small">
-                        Edit
+                        {t('account.edit')}
                       </AxButton>
                     </div>
                   </AxTableCell>
