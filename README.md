@@ -23,7 +23,7 @@ styled-components-library/
 │       │   └── index.ts         # Exports
 │       └── package.json
 ├── apps/
-│   └── my-app/                  # Demo application
+│   └── my-dev/                  # Demo application
 │       ├── src/
 │       │   ├── pages/           # Example pages
 │       │   └── components/     # App components
@@ -361,7 +361,7 @@ All components use CSS variables that you can override or use directly:
 
 ## Demo Application
 
-The demo application (`apps/my-app`) showcases all available components:
+The demo application (`apps/my-dev`) showcases all available components:
 
 - **Button Page**: Button variants, sizes, and states
 - **Card Page**: Card elevation examples
