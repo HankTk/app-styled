@@ -27,7 +27,7 @@ const AxMainContent = styled.div`
 `;
 
 const CompactHeader = styled(AxHeader)`
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
   flex-shrink: 0;
 `;
 
@@ -41,7 +41,7 @@ const ContentSection = styled(AxSection)`
 `;
 
 const CompactSectionTitle = styled(AxSectionTitle)`
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
 `;
 
 function AppContent() {
